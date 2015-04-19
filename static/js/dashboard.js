@@ -56,7 +56,7 @@ $(document).ready(function() {
     ).done(function(){
 
       //Zone of loading of a json configuration of a determinate personalized dashboard
-      if(document.URL.split("/")[document.URL.split("/").length-1]!=''){
+      if((document.URL.split("/")[document.URL.split("/").length-1]!='') && !isNaN(parseInt(document.URL.split("/")[document.URL.split("/").length-1]))){
 
           var N= document.URL.split("/")[document.URL.split("/").length-1]
 
@@ -443,7 +443,7 @@ function ChangePanel (id){
     widget.panel=parseInt(newPanel);
     var ToPanel= GetPanel(newPanel)
     ToPanel.pushElement(widget)
-    widget.MakeWidget();
+    makePanel(newPanel)
 
     $("#currentSettings").remove();
     $("#making").slideUp("slow");
