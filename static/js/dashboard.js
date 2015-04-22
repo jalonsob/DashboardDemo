@@ -443,7 +443,12 @@ function ChangePanel (id){
     widget.panel=parseInt(newPanel);
     var ToPanel= GetPanel(newPanel)
     ToPanel.pushElement(widget)
-    makePanel(newPanel)
+    if(dashConfiguration.indexOf(newPanel)==-1){
+      widget.MakeWidget()
+    }else{
+      makePanel(newPanel)
+    }
+    showPanel(newPanel)
 
     $("#currentSettings").remove();
     $("#making").slideUp("slow");
